@@ -5,8 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public GameObject cardPrefab;
-
     public static GameManager instance;
 
     private void Awake()
@@ -20,7 +18,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        AudioManager.instance.PlayBGM(0);
     }
 
     // Update is called once per frame
