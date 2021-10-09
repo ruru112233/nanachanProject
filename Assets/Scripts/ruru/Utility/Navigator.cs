@@ -10,7 +10,7 @@ public class Navigator : MonoBehaviour
     {
         // テキストコンポーネントを取得
         Text messageText = GameObject.FindWithTag("MessageText").GetComponent<Text>();
-
+        Debug.Log(messageText);
         foreach (string message_str in messages_str)
         {
             // メッセージテキストをセット
