@@ -12,7 +12,7 @@ class CardData
 
 public class CardAreaScript : MonoBehaviour
 {
-    public Image cardPrefab;
+    public Button cardPrefab;
 
     [SerializeField] GameObject cardContent = null;
 
@@ -49,13 +49,31 @@ public class CardAreaScript : MonoBehaviour
 
     private void CardInstance(CardData data)
     {
-        Image instance = null;
+        Button instance = null;
 
         instance = Instantiate(cardPrefab);
 
+        Text cardText = instance.gameObject.transform.GetChild(0).GetComponent<Text>();
+
         int cardId = data.cardId;
+        cardText.text = "カードID" + cardId;
 
         instance.transform.SetParent(cardContent.transform, false);
+
+        instance.onClick.AddListener(() =>
+        {
+            // 全選択パネルを取得する
+            GameObject[] dropAreas = GameObject.FindGameObjectsWithTag("test");
+
+            foreach (GameObject dropArea in dropAreas)
+            {
+                SpriteRenderer spriteRenderer = dropArea.GetComponent<SpriteRenderer>();
+                Debug.Log(spriteRenderer);
+                spriteRenderer.color = Color.gray;
+                GameManager.instance.CardId = cardId;
+            }
+
+        });
 
         instance.gameObject.SetActive(true);
     }

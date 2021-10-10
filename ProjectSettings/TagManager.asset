@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - CardArea
   - MessageText
+  - test
   layers:
   - Default
   - TransparentFX
