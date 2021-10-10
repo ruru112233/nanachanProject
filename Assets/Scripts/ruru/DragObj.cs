@@ -31,7 +31,7 @@ public class DragObj : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.blocksRaycasts = true;
+       // canvasGroup.blocksRaycasts = true;
     }
 
     // è‚¿ƒJ[ƒh‚Ì‰ñ“]
